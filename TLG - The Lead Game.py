@@ -52,3 +52,28 @@ Your output must consist of a single line containing two integers W and L,
 where W is 1 or 2 and indicates the winner and L is the maximum lead attained by the winner.
 '''
 
+n=int(input())
+dic={"W":[],"L":[]}
+lead=0
+cont=0
+posi_cont=0
+
+for a in range(n):
+    dif=0
+    (x,y)=map(int,input().split())
+    if (x >= y):
+        dif=x-y
+        dic["W"].append(1)
+        dic["L"].append(dif)
+    elif(x<y):
+        dif=y-x
+        dic["W"].append(2)
+        dic["L"].append(dif)
+
+for b in dic["L"]:
+    if (b>lead):
+        lead=b
+        posi_cont=cont
+    cont+=1
+
+print(dic["W"][posi_cont],lead)
